@@ -1,0 +1,112 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pratice</title>
+<style>
+    body{
+        background-image: url("{% static 'bagr.jpg'%}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+</head>
+<body>
+
+    <h2>Student Registration Form</h2>
+    <!--<form action="submit.php" method="post">
+        <form onsubmit="return validatePassword()">-->
+    <form method="post">
+
+        {% csrf_token %}
+        <!-- Display error messages if any -->
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      
+    UserName:
+        <input type="text" id="fname" name="username" required><br>
+    <br>
+    First Name:
+        <input type="text" id="fname" name="first_name" required><br>
+    <br>
+        Last Name:
+        <input type="text" id="lname" name="last_name" required><br>
+    <br>    
+        Email:
+        <input type="email" id="email" name="email" required><br>
+    <br>
+        Department:
+        <select id="dep" name="department" required>
+            <option value="">Select Department</option>
+            <option value="Computer science and Engineering">Computer science</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Electronics Engineering">Electronics Engineering</option>
+        </select><br>
+        <br>
+        Semester:
+        <select id="sem" name="sem" required>
+            <option value="">Select semester</option>
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+            <option value="S3">S3</option>
+            <option value="S4">S4</option>
+            <option value="S5">S5</option>
+            <option value="S6">S6</option>
+            <option value="S7">S7</option>
+            <option value="S8">S8</option>
+        </select><br>
+
+       <br> Registration number:
+        <input type="text" id="reg_no" name="registration_number" required><br>
+
+       <br> Admission number:
+        <input type="text" id="adm_no" name="admission_number" required><br>
+        
+        <br>CGPA:
+        <input type="value" id="CGPA" name="cgpa" required><br>
+        
+        <br>Higher secondary score:
+        <input type="text" id="hss" name="higher_secondary_score" required><br>
+
+        <br>SSLC Score:
+        <input type="text" id="hs" name="sslc_score" required><br>
+
+        <br>mooc course:
+        <select id="mooc_course" name="mooc_course">
+            <option value="">related department</option>
+            <option value="Computer science and Engineering">Computer science</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Electronics Engineering">Electronics Engineering</option>
+        </select><br>
+        
+        <br> No:Internship attended:
+        <input type="intern" id="intern" name="internship_attended"><br>
+
+        <br>phone number:
+        <input type="text" id="phone_number" name="phone_number" required><br>
+
+        <br>Date of Birth:
+        <input type="date" id="dob" name="dob" required><br>
+
+        <br>Create a new password:
+        <input type="text" id="password" name="password1" required><br>
+
+        <br>Re enter new password:
+        <input type="text" id="new_password" name="password2" required><br>
+        <br>
+        <button type="submit">Register</button>
+
+</form>
+</body>
+</html>

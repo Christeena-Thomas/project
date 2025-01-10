@@ -1,0 +1,168 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Placement Management System</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'nav.css' %}">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2980b9;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .content {
+            margin-top: 20px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        .content h2 {
+            text-align: center;
+            color: #2980b9;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .service-item {
+            background-color: #ffffff;
+            border: 1px solid #bdc3c7;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1 1 calc(33.333% - 40px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .service-item h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+
+        <div class="down">
+          <br><a href="#"><b>profile</b></a>
+          <!--href="#"></a> <img src="{% static 'profile.png' %}" alt=""-->
+          <div class="down-content">
+            <a href="{% url 'change_password' %}">Change Password</a>
+            <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        </div>
+        </div>
+        <a href="{% url 'duphome' %}"><b>Home</b></a>
+        <a href="{% url 'about' %}"><b>About us</b></a>
+    
+        <a href="{% url 'prediction' %}"><b>Prediction</b></a>
+        <a href="{% url 'events' %}"><b>Events and Trainings</b></a>
+    
+    
+        <script>
+          function uploadExcel() {
+            document.getElementById('excel-file-input').click();
+          }
+        </script>
+        <a href="{% url 'displayxl' %}"><b>Company</b></a>
+    
+        <input type="file" id="excel-file-input" style="display:none">
+    
+        <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        <a href="{% url 'servicce' %}"><b>Services</b></a>
+        <div class="drop">
+          <a href="#"><b>Contact</b></a>
+          <div class="drop-content">
+            <a href="upcomig trainings.html">8575428963</a>
+            <a href="#">placement123@gmail.com</a>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}"><b>Logout</b></a>
+    
+      </div>
+<div class="container">
+ 
+    
+    <div class="header">
+        <h1>Services</h1>
+    </div>
+
+    <div class="content">
+        <h2>Our Services</h2>
+        <p>
+            Our Placement Management System offers a wide range of services designed to simplify and enhance the placement process for students, recruiters, and placement officers. Here are some of the key services we provide:
+        </p>
+
+        <div class="services">
+            <div class="service-item">
+                <h3>Automated Job Matching</h3>
+                <p>
+                    Our system uses advanced algorithms to match students with job opportunities that best fit their skills, interests, and career goals.
+                </p>
+            </div>
+            <div class="service-item">
+                <h3>Placement Prediction</h3>
+                <p>
+                    Utilizing data analytics, our placement prediction tool estimates the likelihood of students securing a job based on their profiles and market trends.
+                </p>
+            </div>
+            <div class="service-item">
+                <h3>Interview Scheduling</h3>
+                <p>
+                    The system allows for easy scheduling of interviews, making it convenient for both students and recruiters to manage their time efficiently.
+                </p>
+            </div>
+            <div class="service-item">
+                <h3>Company Profiles</h3>
+                <p>
+                    Students can access detailed profiles of recruiting companies, including job descriptions, company culture, and hiring processes.
+                </p>
+            </div>
+            <div class="service-item">
+                <h3>Real-time Tracking</h3>
+                <p>
+                    Placement officers can track the status of job applications and placements in real-time, ensuring transparency and efficiency.
+                </p>
+            </div>
+            <div class="service-item">
+                <h3>Analytics and Reporting</h3>
+                <p>
+                    Our system provides comprehensive analytics and reporting features to help placement officers analyze trends and improve the placement process.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 College of Engineering and Management,Punnapra. All rights reserved.</p>
+    </div>
+</div>
+
+</body>
+</html>

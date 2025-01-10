@@ -1,0 +1,33 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+  <style>
+      body{
+          background-image: url("{% static 'bagr.jpg'%}");
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+  </style>
+  </head>
+</head>
+<body>
+    <form method="post">
+
+            {% csrf_token %}
+            <!-- Display error messages if any -->
+            {% if messages %}
+              <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          
+        {{ form.as_p }}
+    <button type="submit">Register</button>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'prediction.css' %}">
+
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div class="down">
+            <br><a href="#"><b>profile</b></a>
+            <!--href="#"></a> <img src="{% static 'profile.png' %}" alt=""-->
+            <div class="down-content">
+                <a href="{% url 'change_password' %}">Change Password</a>
+                <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+            </div>
+        </div>
+        <a href="{% url 'duphome' %}"><b>Home</b></a>
+        <a href="{% url 'about' %}"><b>About us</b></a>
+
+        <a href="{% url 'prediction' %}"><b>Prediction</b></a>
+        <a href="{% url 'events' %}"><b>Events and Trainings</b></a>
+
+
+  
+        <a href="{% url 'displayxl' %}"><b>Company</b></a>
+
+        <input type="file" id="excel-file-input" style="display:none">
+
+        <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        <a href="{% url 'servicce' %}"><b>Services</b></a>
+        <div class="drop">
+            <a href="#"><b>Contact</b></a>
+            <div class="drop-content">
+                <a href="#">8575428963</a>
+                <a href="#">placement123@gmail.com</a>
+            </div>
+        </div>
+        <a href="{% url 'logout' %}"><b>Logout</b></a>
+
+    </div>
+
+    <style>
+        .form-cont {
+            background-image: url('{% static "prediction_bg.jpg" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+    <div class="predicont">
+        <div class="form-cont">
+            <form method="post" class="form_main">
+                {% csrf_token %}
+                <p class="heading">AI Placement Prediction</p>
+                <div class="inputContainer">
+                    <label for="cgpa">CGPA:</label>
+                    <input type="number" step="0.01" name="cgpa" value="{{ cgpa|default_if_none:'' }}"
+                        class="inputField" id="username" required>
+                </div>
+                <div class="inputContainer">
+                    <label for="mooc_courses">Number of MOOC Courses:</label>
+                    <input type="number" name="mooc_courses" value="{{ mooc_courses|default_if_none:'' }}"
+                        class="inputField" id="username" required>
+                </div>
+                <div class="inputContainer">
+                    <label for="internships">Number of Internships:</label>
+                    <input type="number" name="internships" value="{{ internships|default_if_none:'' }}"
+                        class="inputField" id="username" required>
+                </div>
+                <button id="button">Predict</button>
+            </form>
+        </div>
+
+
+
+        <div class="results {% if prediction %}{% if prediction == 'Placed' %}positive{% else %}negative{% endif %}{% endif %}">
+            <p class="{% if prediction %}no-enter-data{% else %}enter-data{% endif %}">Enter Data to Predict</p>
+            {% if prediction %}
+            <h2>Prediction Results:</h2>
+            <div >
+                {% if prediction == 'Placed' %}
+                <p class="congratz">Congratulations!</p>
+                <div class="congratsimg">
+                    <img src='{% static "congrats.jpeg" %}' alt="" class="bounce">
+                    <img src='{% static "congrats.jpeg" %}' alt="" class="bounce1">
+                </div>
+                <p style="font-size: 20px;">You have a high probability of being placed!</p>
+                {% else %}
+                <p class="oops">Oops! <span>😕</span></p>
+                <p style="font-size: 20px;">There's a lower chance of placement at the moment.</p>
+                {% endif %}
+            </div>
+            <p>Probability of being placed: <b> {{ probability_placed }}</b> </p>
+            <p>Probability of not being placed: <b>{{ probability_not_placed }}</b> </p>
+            {% endif %}
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

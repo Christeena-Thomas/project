@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College of Engineering and Management Punnapra</title>
+<style>
+ body {
+  background-image: url("{% static 'collegeimage.jpg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+}
+
+.header {
+font-size: 23;
+ color: #030303;
+ padding: 20px;
+ text-align: center;
+}
+
+.subheader {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: 20;
+color: #840b0b;
+ padding: 10px;
+ text-align: center;
+}
+
+.container {
+background-position: center center;  
+ margin: 20px auto;
+ max-width: 600px;
+ padding: 20px;
+ border: 1px solid #dde0e2;
+}
+
+.form-group {
+ margin-bottom: 20px;
+}
+
+label {
+ display: block;
+ font-weight: bold;
+ margin-bottom: 5px;
+}
+
+select {
+ width: 100%;
+ padding: 10px;
+ font-size: 16px;
+}
+
+button {
+ padding: 10px 20px;
+ font-size: 16px;
+ cursor: pointer;
+ background-color: #1b9c5c;
+ color: #090106;
+ border: none;
+ border-radius: 5px;
+}
+
+button:hover {
+ background-color:#023404;
+}
+
+
+</style>
+</head>
+<body>
+
+ 
+   <div class="header">
+    <h1>College of Engineering and Management Punnapra</h1>
+  </div>
+  <div class="subheader">
+    <h2>Placement Management System</h2>
+  </div>
+  <div class="container">
+    <form id="userTypeForm">
+      <div class="form-group">
+        <label for="userType">Select User Type:</label>
+        <select id="userType">
+          <option value="Admin">Admin</option>
+          <option value="student">Student</option>
+        </select>
+      </div>
+    </form>
+      <button onclick="redirectTo()">Submit</button>
+      <script>
+        function redirectTo() {
+          var userType = document.getElementById("userType").value;
+          if (userType === "Admin") {
+            window.location.href = "{% url 'admin:index' %}";
+          } else if (userType === "student") {
+            window.location.href = "{% url 'login' %}";
+          }
+        }
+      </script>
+    <a href="{% url 'register' %}"><button>create new account</button></a>
+  </div>
+</body>
+</html>

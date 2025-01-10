@@ -1,0 +1,154 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Trainings</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'nav.css' %}"> -->
+
+    <style>
+        body {
+            background-color: #bbd7f2;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        .event-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        .event-title {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .event-date {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .event-description {
+            color: #343a40;
+            font-size: 16px;
+        }
+        h2 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .navbar {
+            background-color: #031652;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: rgb(254, 251, 251);
+            display: inline-block;
+            float: left;
+            font-size: 17px;
+            padding: 20px 33px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: rgb(5, 146, 222);
+        }
+        .dropdown, .down, .drop {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            color: rgb(254, 251, 251);
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .drop-content,.down-content{
+            top: 55px;
+            width: 100%;
+        }
+
+        .drop-content a{
+            width: 99%;
+        }
+        .dropdown-content, .down-content, .drop-content {
+            background-color: white;
+            display: none;
+            position: absolute;
+            width: fit-content;
+            z-index: 1;
+        }
+        .dropdown-content a, .down-content a, .drop-content a {
+            color: black;
+            display: block;
+            padding: 14px 16px;
+            text-align: left;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover, .down-content a:hover, .drop-content a:hover {
+            background-color: #06285b;
+            color: white;
+        }
+        .dropdown:hover .dropdown-content, .down:hover .down-content, .drop:hover .drop-content {
+            display: block;
+        }
+        .dropdown-content, .drop-content {
+            right: 0; /* Aligns the dropdown content to the right edge of the parent */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="down">
+            <a href="#"><b>Profile</b></a>
+            <div class="down-content">
+                <a href="{% url 'change_password' %}">Change Password</a>
+            </div>
+        </div>
+        <a href="{% url 'duphome' %}"><b>Home</b></a>
+        <a href="{% url 'about' %}"><b>About us</b></a>
+        <a href="{% url 'prediction' %}"><b>Prediction</b></a>
+        <a href="{% url 'events' %}"><b>Events and Trainings</b></a>
+        <a href="{% url 'displayxl' %}"><b>Company</b></a>
+        <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        <a href="{% url 'servicce' %}"><b>Services</b></a>
+        <div class="drop">
+            <a href="#"><b>Contact</b></a>
+            <div class="drop-content">
+                <a href="upcomig trainings.html">8575428963</a>
+                <a href="#">placement123@gmail.com</a>
+            </div>
+        </div>
+        <a href="{% url 'logout' %}"><b>Logout</b></a>
+    </div>
+    <div class="container">
+        <h2>Events and Trainings</h2>
+        <div class="row">
+            {% for event in events %}
+                <div class="col-md-6">
+                    <div class="event-card">
+                        <h3 class="event-title">{{ event.name }}</h3>
+                        <p class="event-date">{{ event.date }}</p>
+                        <p class="event-description">{{ event.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

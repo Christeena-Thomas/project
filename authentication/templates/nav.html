@@ -1,0 +1,205 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar </title>
+  <link rel="stylesheet" type="text/css" href="{% static 'nav.css' %}">
+  <style>
+    body {
+        background-image: url('{% static "placement.jpg" %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin: 0px;
+    }
+    .navbar {
+    overflow: hidden;
+    background-color: #031652;
+    width: 1600x;
+    height:65px ;
+  }
+
+  /* Style the links inside the navigation bar */
+  .navbar a {
+    float: left;
+    display: inline;
+    color: rgb(254, 251, 251);
+    text-align: center;
+    padding: 1px 33px;
+    font-size: 17px;
+    text-decoration: none;
+                      
+  }
+
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: rgb(5, 146, 222);
+  }
+  .header{
+   color: rgb(172, 3, 3);
+
+    text-align: center;
+  }
+  /* Style the dropdown button */
+.dropbtn {
+  color: rgb(254, 251, 251);
+  text-align: center;
+  padding: 8px px;
+  text-decoration: none;
+  position: relative;
+}
+.profile{
+    margin-left: auto ;
+}
+
+.down img {
+    border-radius:40%; /* This creates a circle shape */
+    width: 35px; /* Adjust size as needed */
+    height: 35px; /* Adjust size as needed */
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 200px;
+ 
+  z-index: 1;
+  top: 8%; /* position the dropdown content below the dropdown button */
+  right: 40%;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: bottom;
+}
+
+.down-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 200px;
+ 
+  z-index: 1;
+  top: 8%; /* position the dropdown content below the dropdown button */
+  right: 85%;
+}
+
+/* Style the links inside the dropdown */
+.down-content a {
+  color: black;
+  padding: 8px 5px;
+  text-decoration: none;
+  display: block;
+  text-align: bottom;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 200px;
+ 
+  z-index: 1;
+  top: 8%; /* position the dropdown content below the dropdown button */
+  right: 6%;
+}
+
+
+/* Style the links inside the dropdown */
+.drop-content a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: bottom;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #e6eaf0;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+.drop:hover .drop-content {
+  display:block;
+}
+.down:hover .down-content {
+  display:block;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+
+    <div class="down">
+      <br><a href="#"><b>profile</b></a>
+      <!--href="#"></a> <img src="{% static 'profile.png' %}" alt=""-->
+      <div class="down-content">
+        <a href="{% url 'change_password' %}">Change Password</a>
+      </div>
+    </div>
+    <a href="{% url 'duphome' %}"><b>Home</b></a>
+    <a href="{% url 'about' %}"><b>About us</b></a>
+
+    <a href="{% url 'prediction' %}"><b>Prediction</b></a>
+    <a href="{% url 'events' %}"><b>Events and Trainings</b></a>
+
+
+    <script>
+      function uploadExcel() {
+        document.getElementById('excel-file-input').click();
+      }
+    </script>
+    <a href="{% url 'displayxl' %}"><b>Company</b></a>
+
+    <input type="file" id="excel-file-input" style="display:none">
+
+    <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+    <a href="{% url 'servicce' %}"><b>Services</b></a>
+    <div class="drop">
+      <a href="#"><b>Contact</b></a>
+      <div class="drop-content">
+        <a href="upcomig trainings.html">8575428963</a>
+        <a href="#">placement123@gmail.com</a>
+      </div>
+    </div>
+    <a href="{% url 'logout' %}"><b>Logout</b></a>
+
+  </div>
+
+  <!-- Page Content -->
+  <div style="padding:20px">
+    <div class="header">
+      <br>
+      <h1> WELCOME </h1>
+      <h2>TO COLLEGE PLACEMENT MANAGEMENT PORTAL</h2>
+    </div><br>
+    <div class="intro">
+      <h2 style="font-family:sans-serif"><em> Our model helps the placement cell within an organization to identify the
+          prospective students and pay attention to and improve their technical as well as interpersonal skills.
+          A recommendation system in our website predicts students' placement statuses Dream Company, Core Company, Mass
+          Recruiters, Not Eligible, Not Interested in Placements.
+          It helps placement cells identify prospective students, improve their skills, and allows students to know
+          their likely placement status, motivating them to strive for higher-tier companies.
+        </em></h2>
+    </div>
+
+  </div>
+</body>
+
+</html>

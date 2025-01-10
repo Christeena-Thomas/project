@@ -1,0 +1,73 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'notifications.css' %}">
+
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div class="down">
+            <br><a href="#"><b>profile</b></a>
+            <!--href="#"></a> <img src="{% static 'profile.png' %}" alt=""-->
+            <div class="down-content">
+                <a href="{% url 'change_password' %}">Change Password</a>
+                <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+            </div>
+        </div>
+        <a href="{% url 'duphome' %}"><b>Home</b></a>
+        <a href="{% url 'about' %}"><b>About us</b></a>
+
+        <a href="{% url 'prediction' %}"><b>Prediction</b></a>
+        <a href="{% url 'events' %}"><b>Events and Trainings</b></a>
+
+
+        <script>
+            function uploadExcel() {
+                document.getElementById('excel-file-input').click();
+            }
+        </script>
+        <a href="{% url 'displayxl' %}"><b>Company</b></a>
+
+        <input type="file" id="excel-file-input" style="display:none">
+
+        <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        <a href="{% url 'servicce' %}"><b>Services</b></a>
+        <div class="drop">
+            <a href="#"><b>Contact</b></a>
+            <div class="drop-content">
+                <a href="upcomig trainings.html">8575428963</a>
+                <a href="#">placement123@gmail.com</a>
+            </div>
+        </div>
+        <a href="{% url 'logout' %}"><b>Logout</b></a>
+
+    </div>
+
+
+    <div class="not-container">
+        <h1>Notifications</h1>
+        <ul>
+            {% for event in events %}
+                <li>
+                    <span class="icon">🎉</span>
+                    <span class="text">NEW EVENT ADDED: <b>"{{ event.name }}"</b> on {{ event.date }}</span>
+                </li>
+            {% empty %}
+                <li>No events added yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+
+</body>
+
+</html>

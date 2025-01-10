@@ -1,0 +1,125 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Placement Management System</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'nav.css' %}">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2980b9;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .content {
+            margin-top: 20px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        .content h2 {
+            text-align: center;
+            color: #2980b9;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+
+        <div class="down">
+          <br><a href="#"><b>profile</b></a>
+          <!--href="#"></a> <img src="{% static 'profile.png' %}" alt=""-->
+          <div class="down-content">
+            <a href="{% url 'change_password' %}">Change Password</a>
+            <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        </div>
+        </div>
+        <a href="{% url 'duphome' %}"><b>Home</b></a>
+        <a href="{% url 'about' %}"><b>About us</b></a>
+    
+        <a href="{% url 'prediction' %}"><b>Prediction</b></a>
+        <a href="{% url 'events' %}"><b>Events and Trainings</b></a>
+    
+    
+        <script>
+          function uploadExcel() {
+            document.getElementById('excel-file-input').click();
+          }
+        </script>
+        <a href="{% url 'displayxl' %}"><b>Company</b></a>
+    
+        <input type="file" id="excel-file-input" style="display:none">
+    
+        <a href="{% url 'notifications' %}"><b>Notifications</b></a>
+        <a href="{% url 'servicce' %}"><b>Services</b></a>
+        <div class="drop">
+          <a href="#"><b>Contact</b></a>
+          <div class="drop-content">
+            <a href="#">8575428963</a>
+            <a href="#">placement123@gmail.com</a>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}"><b>Logout</b></a>
+    
+      </div>
+
+<div class="container">
+    <div class="header">
+        <h1>About Us</h1>
+    </div>
+
+    <div class="content">
+        <h2>Our Vision</h2>
+        <p>
+            At College of Engineering and Management, our Placement Management System is designed to streamline and enhance the entire placement process. Our vision is to create a seamless interface between students and recruiters, ensuring that every student gets the best opportunity to launch their career.
+        </p>
+
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to bridge the gap between academia and industry by providing a robust and user-friendly platform that simplifies the placement process. We aim to support our students in securing top positions by providing them with the tools, resources, and guidance they need to succeed in a competitive job market.
+        </p>
+
+        <h2>Our Values</h2>
+        <p>
+            We believe in integrity, transparency, and innovation. Our Placement Management System is built on these values to ensure a fair and efficient placement process for all stakeholders. We are committed to maintaining high standards of service and continuously improving our system to meet the evolving needs of students and recruiters.
+        </p>
+
+        <h2>Why Choose Our Placement Management System?</h2>
+        <p>
+            Choosing our Placement Management System means choosing efficiency, reliability, and excellence. Our system offers a comprehensive suite of features designed to make the placement process easier for students, recruiters, and placement officers alike. From automated job matching to real-time tracking and reporting, our platform is equipped to handle all aspects of campus placements.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 COLLEGE OF ENGINERRING AND MANAGEMENT,PUNNAPRA. ALL RIGHTS RESERVED.</p>
+    </div>
+</div>
+
+</body>
+</html>
